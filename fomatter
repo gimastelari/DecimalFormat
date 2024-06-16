@@ -1,0 +1,55 @@
+import java.util.Scanner; // import scanner package which allows input from print stream to be read 
+import java.text.DecimalFormat; // import DecimalFormat package which is used to format decimal numbers 
+public class lab18 // class header - class is public (meaning it can be accessed by other classes)
+{ 
+    public static void main(String args[]) // main method header 
+    { 
+        Scanner sc = new Scanner (System.in); 
+        /* new scanner object created (an instance of the class) which passes
+        n System.in (specifying scanner to read standard input stream  */ 
+    
+        System.out.println("How many stars?"); // Print "how many stars"
+        int stars = sc.nextInt(); 
+        /* scanner object using next.Int() method to read the input from print stream and save it in int 
+        variable named as stars */ 
+        String numStar = ""; // string data type named numStar initiated as ""
+        int count; // count reference variable declared for a integer data type 
+       
+       for (count = 0 ; count < stars ; count = count+1) 
+       /* for loop header stating that count is initiated as 0, the condition is that while the value for count is 
+       less than the value for starts, the loop can repeat as long as this condition is true, after each iteration
+       of the loop the count value is incremented by 1*/ 
+       {
+           numStar = numStar.concat("*"); /* behavior of the loop is that numStar is concat with * and the value 
+           of numStar is changed to this new value */ 
+            System.out.println(numStar); // behavior of the loop is to print the data in numStar 
+       }
+       
+        int endIndex = numStar.length()-1; /* endIndex is a reference to an integer value set as the index length 
+        of numStar String decremented by 1 */ 
+        for ( ; endIndex >= 0 ; endIndex--) /* in this for loop the condition is that while endIndex is greater than
+        or equal to 0, the endIndex value will be dectemented by 1 after each iteration. */ 
+        {
+            System.out.println(numStar.substring(0, endIndex)); /* print value of string from index 0, to the index
+            of the value of integer data stored in reference endIndex */ 
+
+        }
+
+        DecimalFormat numFormat = new DecimalFormat("0000.0000"); /* new DecimalFormat object made (instance of the class)
+        which passes in the argument that the format should have 4 decimal places on the left and on the right*/ 
+
+        for(double base = 1.1; base <= 5.5; base++) /*for loop that has reference "base" of a double data type that 
+        that is initiated to the value 1.1, the condition for the loop is that while value for base is less than or 
+        equal to 5.5, the loop will continue and base value will increment by 1 after each iteration*/ 
+        {
+            for(int power = 1; power <= 5; power++) /* for loop that initiates the reference "power" to an integer data 
+            type of value 1, the condition for this loop is that while the value of power is less than or equal to 
+            the value of 5 the loop will repeat and will increment by 1 at the end of each iteration*/
+            {
+                System.out.println(numFormat.format(Math.pow(base , power))); /* the behavior of the loop is to print 
+                numFormat object with the format method called on it for the argument of the Math objec with the power
+                method called on it for the value of base referencce raised to the power of power reference*/ 
+            }
+        } 
+    }
+}
